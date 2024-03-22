@@ -19,9 +19,17 @@ public class JDBCExample1 {
             // step 3 : create  statement/prepared statement object to dispatch(send) sql to DB.
             Statement stm=con.createStatement();
             // stap 4 :send sql to DB
-            String sql="insert into student values(4,'DDD','cs',7)";
-            int n=stm.executeUpdate(sql);
-            System.out.println(n +" row affected");
+            String sql1="insert into student values(1,'AAA','cs',7)";
+            String sql2="insert into student values(2,'BBB','cs',5)";
+            String sql3="insert into student values(3,'CCC','civil',6)";
+            String sql4="insert into student values(4,'DDD','me',2)";
+            String sql5="insert into student values(5,'EEE','cs',4)";
+            stm.executeUpdate(sql1);
+            stm.executeUpdate(sql2);
+            stm.executeUpdate(sql3);
+            stm.executeUpdate(sql4);
+            stm.executeUpdate(sql5);
+            con.close();
         }
         catch(ClassNotFoundException e)
         {
