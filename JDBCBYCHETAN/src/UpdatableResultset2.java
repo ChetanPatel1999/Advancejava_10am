@@ -3,7 +3,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 
-public class UpdatableResultset{
+public class UpdatableResultset2{
     public static void main(String[] args) throws Exception {
         Connection con=Utility.connect();
         Statement st=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
@@ -17,11 +17,14 @@ public class UpdatableResultset{
             String s4=rs.getString(4);
             System.out.println(s1+" "+s2+" "+s3+" "+s4);
         }
-        // udate data in database using resultset object
-        rs.absolute(1);
-        rs.updateInt(4, 7);
-        rs.updateRow();
-        System.out.println("print table after update :- ");
+        // insert data in database using resultset object
+        rs.moveToInsertRow();
+        rs.updateInt("rno", 114);
+        rs.updateString("name", "jayesh");
+        rs.updateString("branch", "Ec");
+        rs.updateInt("sem", 6);
+        rs.insertRow();
+        System.out.println("print table after insert :- ");
         rs.beforeFirst();
           while(rs.next())
         {
@@ -33,4 +36,3 @@ public class UpdatableResultset{
         }
     }
 }
-

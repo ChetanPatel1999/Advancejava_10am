@@ -17,7 +17,6 @@ public class Dataretrieve {
         String s2=rs.getString("name");// String s2=rs.getString(2);
         String s3=rs.getString("branch");//String s3=rs.getString(3);
         String s4=rs.getString("sem");//String s4=rs.getString(4);
-        
         System.out.println(s1+ " "+s2+ " "+s3+ " "+s4);
         }
         
