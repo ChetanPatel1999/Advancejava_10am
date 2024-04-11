@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 public class DATAremove {
     public static void main(String[] args) throws Exception {
+        int myfile24;
         Class.forName("com.mysql.jdbc.Driver");
         Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/data10","root","root");
         Statement st=con.createStatement();
