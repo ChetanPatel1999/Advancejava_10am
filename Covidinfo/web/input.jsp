@@ -5,7 +5,7 @@
         <h4>Please-Provide-Country-Name</h4>
         <form action="DataProvider" method="get">
             Country-name<input type="text" name="t1"/>
-            <input type="submit"/>
+            <input type="submit" value="Get-Data"/>
         </form>
         
     </body>

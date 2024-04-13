@@ -36,10 +36,27 @@ public class DataProvider extends HttpServlet {
         }
          //provide the response
          PrintWriter out=response.getWriter();
-         out.println("thanks for visiting .......");
-         out.println("TotalCase in "+country+" : "+totalCase);
-         out.println("ActiveCase in "+country+" : "+activeCase);
-         out.println("TotalDeath in "+country+" : "+totalDeath);
+          out.println("<html>");
+          out.println("<body bgcolor = pink>");
+          out.println("<h3>welcome to my site</h3>");
+          out.println("<h4>covide information about "+country+" ....</h4>");
+          out.println("<table border =2>");
+          out.println("<tr>");
+          out.println("<td>TotalCase</td>");
+          out.println("<td>"+totalCase+"</td>");
+          out.println("</tr>");
+          out.println("<tr>");
+          out.println("<td>activeCase</td>");
+          out.println("<td>"+activeCase+"</td>");
+          out.println("</tr>");
+          out.println("<tr>");
+          out.println("<td>TotalDeath</td>");
+          out.println("<td>"+totalDeath+"</td>");
+          out.println("</tr>");
+          out.println("</table>");
+          out.println("<marquee><h3>Stay At Home ,Be Safe</h3></marquee>");//display scrol text
+          out.println("</body>");
+          out.println("</html>");
     }
 
     
