@@ -4,9 +4,17 @@
         <servlet-name>DataProvider</servlet-name>
         <servlet-class>DataProvider</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReadExcle</servlet-name>
+        <servlet-class>ReadExcle</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DataProvider</servlet-name>
         <url-pattern>/DataProvider</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReadExcle</servlet-name>
+        <url-pattern>/ReadExcle</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
