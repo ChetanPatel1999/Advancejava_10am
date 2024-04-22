@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -60,18 +61,23 @@ public class Verifyuser extends HttpServlet {
         {
             if(id.equals("sadmin") && pw.equals("ssi"))
             {
-                out.print("welcome super admin");
+               //response.sendRedirect("sadmindashboard.jsp");
+               RequestDispatcher rd=request.getRequestDispatcher("sadmindashboard.jsp");
+               rd.forward(request, response);
             }
             else
             {
-                out.print("invelid user id/password");
+                out.print("<html><body>");
+                out.print("<h3>Invalid user account</h3>");
+                out.print("<hr><h3><a href=index.jsp>Try-again</a></h3><hr>");
+                out.print("</body></html>");
                 
             }
            
         }
         else if(utype.equals("state-admin"))
         {
-            out.print("welcome state admin");
+            response.sendRedirect("stadmindashboard.jsp");
         }
         else if(utype.equals("enduser"))
         {
@@ -83,11 +89,14 @@ public class Verifyuser extends HttpServlet {
                  boolean found= rs.next();
                  if(found)
                  {
-                     out.print("welcome end user");
+                     response.sendRedirect("userdashboard.jsp");
                  }
                  else
                  {
-                     out.print("invelid password/id");
+                     out.print("<html><body>");
+                     out.print("<h3>Invalid user account</h3>");
+                     out.print("<hr><h3><a href=index.jsp>Try-again</a></h3><hr>");
+                     out.print("</body></html>");
                      
                  }
             }
