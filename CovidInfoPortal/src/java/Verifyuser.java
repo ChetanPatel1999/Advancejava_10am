@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Verifyuser extends HttpServlet {
    private Connection con;
-   private PreparedStatement ps1;
+   private PreparedStatement ps1,ps2;
   public void init()
     {
            try
@@ -31,7 +31,9 @@ public class Verifyuser extends HttpServlet {
             //con =DriverManager.getConnection("jdbc:mysql://localhost:3306/coviddata","root","root");
             con=Utility.connect();
             String sql="select *from users where email=? and password=?";
+            String sql1="select *from stateadmins where userid=? and password=?";
             ps1=con.prepareStatement(sql);
+            ps2=con.prepareStatement(sql1);
            }
            catch(Exception e)
            {
@@ -77,7 +79,54 @@ public class Verifyuser extends HttpServlet {
         }
         else if(utype.equals("state-admin"))
         {
-            response.sendRedirect("stadmindashboard.jsp");
+              try
+            {
+                 ps2.setString(1, id);
+                 ps2.setString(2, pw);
+                 ResultSet rs=ps2.executeQuery();
+                 boolean found= rs.next();
+                 if(found)
+                 {
+                    String status=rs.getString("status");
+                    if(status.equals("disable"))
+                    {
+                        out.print("<html><body>");
+                        out.print("<h3>Profile-Completation-Form</h3>");
+                   
+                        out.print("<form action = UpdateStateAdminProfile>");
+                        out.print("<table>");
+                        out.print("<tr><td>Userid</td><td><input type=text name =uid value="+id+"></td></tr>");
+                        out.print("<tr><td>Password</td><td><input type=text name =password></td></tr>");
+                        out.print("<tr><td>Username</td><td><input type=text name =uname></td></tr>");
+                        out.print("<tr><td>Address</td><td><input type=text name =address></td></tr>");
+                        out.print("<tr><td>Email</td><td><input type=text name =email></td></tr>");
+                        out.print("<tr><td>Mobile</td><td><input type=text name =mobile></td></tr>");
+                        out.print("<tr><td><input type=submit value =Update></td></tr>");
+                        
+                        out.print("</form>");
+                        
+                        out.print("</body></html>");
+                    }
+                    else
+                    {
+                        response.sendRedirect("stadmindashboard.jsp");        
+                    }
+                     
+                 }
+                 else
+                 {
+                     out.print("<html><body>");
+                     out.print("<h3>Invalid user account</h3>");
+                     out.print("<hr><h3><a href=index.jsp>Try-again</a></h3><hr>");
+                     out.print("</body></html>");
+                     
+                 }
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            
         }
         else if(utype.equals("enduser"))
         {
