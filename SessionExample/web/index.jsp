@@ -1,4 +1,7 @@
-
+<%
+   session.setMaxInactiveInterval(60*5);
+   
+%>
 <html>
     <body>
         <h3>Session Example </h3>

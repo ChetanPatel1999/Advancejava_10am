@@ -6,7 +6,6 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author CLASSROOM01
  */
-public class ActiveCase extends HttpServlet {
+public class Endsession extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,29 +29,9 @@ public class ActiveCase extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            //read data from session object 
-            //step 1 : obtain session ob. for this user
-            HttpSession session=request.getSession();
-            // srep 2 : read data from user
-            String userid=(String)session.getAttribute("u1id");
-            ServletContext context=getServletContext();
-            String appname=(String)context.getAttribute("appname");
-            if(userid==null)
-            {
-                response.sendRedirect("index.jsp");
-            }
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<body>");
-            out.println("<h1>"+appname+"</h1>");
-            out.print("<h1>wlcome user "+userid+"</h1>");
-            out.println("<h1>ActiveCase : 5000</h1>");
-            out.print("<a href=dashboard.jsp>Dashboard</a>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+       HttpSession session=request.getSession();
+       session.invalidate();
+       response.sendRedirect("index.jsp"); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

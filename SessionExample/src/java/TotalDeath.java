@@ -6,10 +6,12 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,10 +32,19 @@ public class TotalDeath extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            HttpSession session=request.getSession();
+            String userid=(String)session.getAttribute("u1id");
+            ServletContext context=getServletContext();
+            String appname=(String)context.getAttribute("appname");
+             if(userid==null)
+            {
+                response.sendRedirect("index.jsp");
+            }
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<body>");
+            out.println("<h1>"+appname+"</h1>");
+            out.println("<h1>Welcome user "+userid+"</h1>");
             out.println("<h1>TotalDeath : 500</h1>");
             out.print("<a href=dashboard.jsp>Dashboard</a>");
             out.println("</body>");

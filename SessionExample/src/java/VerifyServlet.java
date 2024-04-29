@@ -6,6 +6,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +33,9 @@ public class VerifyServlet extends HttpServlet {
        //step 1: obtain the session obj. created for this user
        HttpSession session=request.getSession();
        //write data in session object
-       session.setAttribute("u1id",userid);
+       session.setAttribute("u1id",userid);// name value paire
+       ServletContext context=getServletContext();
+       context.setAttribute("appname", "Covid-Info");
        if(userid.equals("abc") || userid.equals("xyz") || userid.equals("pqr"))
        {
           response.sendRedirect("dashboard.jsp"); 

@@ -16,6 +16,10 @@
         <servlet-name>TotalDeath</servlet-name>
         <servlet-class>TotalDeath</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Endsession</servlet-name>
+        <servlet-class>Endsession</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerifyServlet</servlet-name>
         <url-pattern>/VerifyServlet</url-pattern>
@@ -32,9 +36,13 @@
         <servlet-name>TotalDeath</servlet-name>
         <url-pattern>/TotalDeath</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Endsession</servlet-name>
+        <url-pattern>/Endsession</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+           30
         </session-timeout>
     </session-config>
 </web-app>
