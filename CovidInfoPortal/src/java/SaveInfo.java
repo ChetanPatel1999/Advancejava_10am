@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 public class SaveInfo extends HttpServlet {
     public Connection con;
     public PreparedStatement ps;
@@ -44,11 +45,15 @@ public class SaveInfo extends HttpServlet {
             throws ServletException, IOException {
         //read data from client
         //SaveInfo?state=&uid=&total=&active=&death=
-        String userid=request.getParameter("uid");
-        String state=request.getParameter("state");
+       // String userid=request.getParameter("uid");
+        //String state=request.getParameter("state");
         int total=Integer.parseInt(request.getParameter("total"));
         int active=Integer.parseInt(request.getParameter("active"));
         int death=Integer.parseInt(request.getParameter("death"));
+        //read data from session object
+        HttpSession session=request.getSession();
+        String userid=(String)session.getAttribute("userid");
+        String state=(String)session.getAttribute("state");
         //java.util.Date dt =new java.util.Date();
        // long val=dt.getTime();
        // java.sql.Date idate=new java.sql.Date(val);

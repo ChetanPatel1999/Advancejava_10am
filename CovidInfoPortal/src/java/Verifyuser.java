@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -64,6 +65,8 @@ public class Verifyuser extends HttpServlet {
             if(id.equals("sadmin") && pw.equals("ssi"))
             {
                //response.sendRedirect("sadmindashboard.jsp");
+                HttpSession session=request.getSession();
+                session.setAttribute("userid", id);
                RequestDispatcher rd=request.getRequestDispatcher("sadmindashboard.jsp");
                rd.forward(request, response);
             }
@@ -109,6 +112,10 @@ public class Verifyuser extends HttpServlet {
                     }
                     else
                     {
+                        String state=rs.getString("state");
+                        HttpSession session=request.getSession();
+                        session.setAttribute("userid", id);
+                        session.setAttribute("state", state);
                         response.sendRedirect("stadmindashboard.jsp");        
                     }
                      

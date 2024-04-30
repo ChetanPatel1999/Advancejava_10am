@@ -1,12 +1,16 @@
-
+<%
+   String id=(String)session.getAttribute("userid");
+   if(id==null)
+   {
+     response.sendRedirect("index.jsp");
+   }
+%>
 <html>
     <body>
         <h3>Submit-Info-For-Today</h3>
         <hr>
         <form action="SaveInfo">
          <pre>   
-   State      <input type="text" name="state"/>
-   Userid     <input type="text" name="uid"/>
    TotalCase  <input type="text" name="total"/>
    ActiveCase <input type="text" name="active"/>
    TotalDeath <input type="text" name="death"/>
