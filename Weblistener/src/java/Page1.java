@@ -6,7 +6,6 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author CLASSROOM01
  */
-public class Covidinfo extends HttpServlet {
+public class Page1 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,14 +31,13 @@ public class Covidinfo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            ServletContext context=getServletContext();
-            String appname=context.getInitParameter("app-name");
             out.println("<!DOCTYPE html>");
             out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Page1</title>");            
+            out.println("</head>");
             out.println("<body>");
-            out.println("<h1>"+appname+"</h1>");
-            out.println("<h1>Covid case in india : 5000</h1>");
-            out.println("<h1>Covid case in USA : 15000</h1>");
+            out.println("<h1>Page 1 Servlet called </h1>");
             out.println("<h1><a href=index.jsp>Home</a></h1>");
             out.println("</body>");
             out.println("</html>");

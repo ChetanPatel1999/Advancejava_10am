@@ -38,10 +38,6 @@
         </servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>abc</servlet-name>
-        <url-pattern>/WHO</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>AdminInfo</servlet-name>
         <url-pattern>/AdminInfo</url-pattern>
     </servlet-mapping>

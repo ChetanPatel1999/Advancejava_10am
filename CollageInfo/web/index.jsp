@@ -9,6 +9,7 @@
         <a href="info.jsp">Time Table</a>
         <a href="Syllabus">Syllabus</a>
         <a href="Labscheduals">Labschedual</a>
+        <a href="Endsession">Log-out</a>
         </pre>
         <hr>
     </body>

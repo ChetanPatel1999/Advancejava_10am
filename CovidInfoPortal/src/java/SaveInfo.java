@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,9 @@ public class SaveInfo extends HttpServlet {
            {
             //Class.forName("com.mysql.jdbc.Driver");
             //con =DriverManager.getConnection("jdbc:mysql://localhost:3306/coviddata","root","root");
-            con=Utility.connect();
+           // con=Utility.connect();
+            ServletContext context=getServletContext();
+            con=(Connection)context.getAttribute("dbcon");
             String sql="insert into covidinfo(idate,state,total,active,death,userid) values(now(),?,?,?,?,?)";
             ps=con.prepareStatement(sql);
            }
@@ -32,14 +35,7 @@ public class SaveInfo extends HttpServlet {
     }
     public void destroy()
     {
-        try
-        {
-            con.close();
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
+       
     }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

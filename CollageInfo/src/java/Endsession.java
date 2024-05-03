@@ -6,17 +6,17 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author CLASSROOM01
  */
-public class Covidinfo extends HttpServlet {
+public class Endsession extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,22 +29,12 @@ public class Covidinfo extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            ServletContext context=getServletContext();
-            String appname=context.getInitParameter("app-name");
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<body>");
-            out.println("<h1>"+appname+"</h1>");
-            out.println("<h1>Covid case in india : 5000</h1>");
-            out.println("<h1>Covid case in USA : 15000</h1>");
-            out.println("<h1><a href=index.jsp>Home</a></h1>");
-            out.println("</body>");
-            out.println("</html>");
+          HttpSession session= request.getSession();
+          session.invalidate();
+          PrintWriter out=response.getWriter();
+          out.print("session delete successfully");
         }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

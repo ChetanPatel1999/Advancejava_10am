@@ -6,6 +6,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,9 +34,12 @@ public class ImportantContact extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            ServletContext context=getServletContext();
+            String appname=context.getInitParameter("app-name");
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<body>");
+            out.println("<h1>"+appname+"</h1>");
             out.println("<h1>important contaect !</h1>");
             out.println("<h1>mob1 : 4567890</h1>");
             out.println("<h1>mob2 : 678945</h1>");

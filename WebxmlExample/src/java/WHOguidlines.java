@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author CLASSROOM01
  */
-//@WebServlet(urlPatterns = {"/WHOguidlines"})
+@WebServlet(urlPatterns = {"/WHO"})
 public class WHOguidlines extends HttpServlet {
 
     /**
