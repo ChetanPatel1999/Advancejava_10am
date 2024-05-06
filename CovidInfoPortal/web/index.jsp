@@ -25,7 +25,8 @@
             </table>
         </form>
         <hr>
-        <a href="registration.jsp">new user Registration</a>
+        <a href="registration.jsp">new user Registration</a><br>
+        <a href="helpline.jsp">Covid-Helpline-Number</a>
         <hr>
     </body>
 </html>
