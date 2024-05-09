@@ -1,8 +1,8 @@
-
+<%@taglib uri= "/WEB-INF/tlds/lib1.tld" prefix="mytag" %>
 <html>
     <body>
         <h3>Welcome Covid Info-Portal </h3>
-       
+        <mytag:totalcases/>
         <form action="Verifyuser" method="get">
             <table >
              <tr>

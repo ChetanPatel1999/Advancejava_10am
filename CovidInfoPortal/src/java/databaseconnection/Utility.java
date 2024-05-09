@@ -1,11 +1,13 @@
+package databaseconnection;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 
 public class Utility {
-    private static Connection con;
-    static Connection connect()
+    public static Connection con;
+    static public Connection connect()
     {
         try
         {

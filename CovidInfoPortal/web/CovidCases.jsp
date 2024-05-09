@@ -1,5 +1,6 @@
 <%@page import="java.sql.Connection,java.sql.Statement" errorPage="myerror.jsp" %>
 <%@page import="java.sql.ResultSet" %>
+ <%@taglib uri="/WEB-INF/tlds/lib1.tld" prefix="myt" %>
 <%!
     int deathPercent(int total,int death)
     {
@@ -42,6 +43,7 @@
                 }
               %>
         </table>
+     <myt:totalcases/>
         <hr>
         <a href="userdashboard.jsp">Dashboard</a>
     </body>
