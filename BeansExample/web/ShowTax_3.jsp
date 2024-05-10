@@ -1,5 +1,6 @@
 <jsp:useBean id="bean" class="mypkg.TaxBean"/>
-<jsp:setProperty name="bean" property="*" />
+<jsp:setProperty name="bean" property="income"  param="t1"/>
+<jsp:setProperty name="bean" property="age" param="t2"/>
 <html>
     <body>
         <h3>Tax Detail :</h3>

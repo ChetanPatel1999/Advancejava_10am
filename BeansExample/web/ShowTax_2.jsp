@@ -1,5 +1,11 @@
+<%
+    int income=Integer.parseInt(request.getParameter("t1"));
+    int age=Integer.parseInt(request.getParameter("t2"));
+    int tax=0;
+%>
 <jsp:useBean id="bean" class="mypkg.TaxBean"/>
-<jsp:setProperty name="bean" property="*" />
+<jsp:setProperty name="bean" property="income" value="<%=income%>"/>
+<jsp:setProperty name="bean" property="age" value="<%=age%>"/>
 <html>
     <body>
         <h3>Tax Detail :</h3>
