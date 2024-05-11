@@ -2,7 +2,7 @@
     <body>
         <h3>Data-Entry-Form</h3>
         <hr>
-        <form action="">
+        <form action="SaveMedicine">
             <pre>
             Code  : <input type="text" name="code"/>
             Name  : <input type="text" name="name"/>

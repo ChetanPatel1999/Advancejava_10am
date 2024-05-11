@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>SaveMedicine</servlet-name>
+        <servlet-class>SaveMedicine</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchMedicine</servlet-name>
+        <servlet-class>SearchMedicine</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveMedicine</servlet-name>
+        <url-pattern>/SaveMedicine</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchMedicine</servlet-name>
+        <url-pattern>/SearchMedicine</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
